@@ -37,13 +37,19 @@ const Select = ({ items = [], selectedId, onChange }) => {
   return (
     <div className={cx("root", { open })}>
       <div className={cx("input")} onClick={onOpen}>
-        <input
-          type="text"
-          className="input"
-          value={selectedId?.name ?? ""}
-          onChange={(e) => console.log(e.target.value)}
-          ref={refInput}
-        />
+        {items.length > 0 ? (
+          <input
+            type="text"
+            className="input"
+            value={selectedId?.name ?? ""}
+            onChange={(e) => console.log(e.target.value)}
+            ref={refInput}
+            readOnly
+          />
+        ) : (
+          <input type="text" readOnly className="input" value={"Не выбран"} ref={refInput} />
+        )}
+
         <button className={cx("inputIcon")}>
           <svg
             width="14"
