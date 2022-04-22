@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import Select from "../Select/Select";
 import MaskedInput from "react-text-mask/dist/reactTextMask";
 import CurrencyInput from "react-currency-input-field";
@@ -22,11 +23,22 @@ const ParamsStep = ({
     onChange(key, value);
   };
 
+  const [models, setModels] = useState([]);
+
   const onChangeText =
     (key, fn) =>
     ({ target }) => {
       onChange({ [key]: fn ? fn(target.value) : target.value });
     };
+
+  useEffect(() => {
+    if (form?.brandts?.id) {
+      const model = modelList.filter(
+        (__res) => __res.brandId === form?.brandts?.id
+      );
+      setModels(model);
+    }
+  }, [form?.brandts?.id, modelList, models]);
 
   return (
     <section className="step-content">
@@ -156,7 +168,7 @@ const ParamsStep = ({
             </span>
             <div className="form-field__control">
               <Select
-                items={modelList}
+                items={models}
                 selectedId={form.modelts}
                 onChange={onChangeField("modelts")}
               />

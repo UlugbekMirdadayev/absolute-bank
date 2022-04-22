@@ -8,16 +8,22 @@ import TaxStep from "./components/TaxStep/TaxStep";
 import AdditionalStep from "./components/AdditionalStep/AdditionalStep";
 import { useDictionary } from "./hooks/useDictionary";
 import { useForm } from "./hooks/useForm";
-import { BRAND_TYPE, PRODUCT_TYPE, TS_TYPE, CURRENCY } from "./dictionary";
+import {
+  BRAND_TYPE,
+  PRODUCT_TYPE,
+  TS_TYPE,
+  CURRENCY,
+  MODEL,
+} from "./dictionary";
 
 const App = () => {
-  const [step, setStep] = useState("params"); 
+  const [step, setStep] = useState("params");
 
   const { form, onChange: changeForm } = useForm();
 
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
+  // useEffect(() => {
+  //   console.log(form);
+  // }, [form]);
 
   const { dictionaryMap } = useDictionary();
 
@@ -41,7 +47,7 @@ const App = () => {
             productsList={PRODUCT_TYPE}
             autoList={TS_TYPE}
             brandList={BRAND_TYPE}
-            modelList={dictionaryMap.get("modelts") || []}
+            modelList={MODEL}
             currencyList={CURRENCY}
             termList={dictionaryMap.get("term") || []}
             advanceList={dictionaryMap.get("advancepayment") || []}

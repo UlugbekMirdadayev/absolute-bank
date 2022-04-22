@@ -40,7 +40,7 @@ const Select = ({ items = [], selectedId, onChange }) => {
         <input
           type="text"
           className="input"
-          defaultValue={selectedId?.name ? selectedId?.name : ""}
+          value={selectedId?.name ?? ""}
           onChange={(e) => console.log(e.target.value)}
           ref={refInput}
         />
@@ -69,17 +69,22 @@ const Select = ({ items = [], selectedId, onChange }) => {
                 left: "0",
                 width: "100vw",
                 height: "100vh",
+                zIndex: "2",
               }
             : {}
         }
       />
       <div className={cx("dd")}>
         <ul>
-          {items.map((item) => (
-            <li key={item.id} onClick={onSelect(item)}>
-              {item.name}
-            </li>
-          ))}
+          {items.length > 0 ? (
+            items.map((item) => (
+              <li key={item.id} onClick={onSelect(item)}>
+                {item.name}
+              </li>
+            ))
+          ) : (
+            <li>No items</li>
+          )}
         </ul>
       </div>
     </div>
