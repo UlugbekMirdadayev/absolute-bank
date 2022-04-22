@@ -7,9 +7,9 @@ const AdditionalStep = ({
   onChange,
   onSave,
 }) => {
-  const onChangeField = (key) => (value) => {
-    onChange(key, value);
-  };
+  // const onChangeField = (key) => (value) => {
+  //   onChange(key, value);
+  // };
 
   const onChangeText = (key, fn) => ({target}) => {
     onChange({[key]: fn ? fn(target.value) : target.value});
