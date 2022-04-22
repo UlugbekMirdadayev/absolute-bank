@@ -1,0 +1,68 @@
+.stepper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 33px 0 65px 0;
+}
+
+.inner {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #7D7D7D;
+    position: relative;
+    &Text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 600;
+        transform: translate(-45%, 25px);
+        text-align: center;
+        min-width: 212px;
+    }
+    &Line {
+        width: 215px;
+        height: 1px;
+        background: #DDDDDD;
+        margin: 0 35px;
+    }
+    &Dot {
+        border: 1px solid #DDDDDD;
+        background: #FFF;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    &Active {
+        color: #000;
+        .step {
+            &Dot {
+                background: #FF6600;
+                border-color: transparent;
+            }
+        }
+    }
+}
+
+.divider {
+    width: 215px;
+    height: 1px;
+    background: #DDDDDD;
+}
+
+//.stepDot {
+//
+//    &Active {
+//        border-color: transparent;
+//        background: #FF6600;
+//    }
+//}
