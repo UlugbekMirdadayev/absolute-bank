@@ -32,7 +32,7 @@ const Select = ({ items = [], selectedId, onChange }) => {
     return () => {
       document.removeEventListener("click", outsideClick);
     };
-  }, [open]);
+  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={cx("root", { open })}>
