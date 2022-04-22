@@ -11,7 +11,7 @@ import { useForm } from "./hooks/useForm";
 import { BRAND_TYPE, PRODUCT_TYPE, TS_TYPE, CURRENCY } from "./dictionary";
 
 const App = () => {
-  const [step, setStep] = useState("params");
+  const [step, setStep] = useState("params"); 
 
   const { form, onChange: changeForm } = useForm();
 
