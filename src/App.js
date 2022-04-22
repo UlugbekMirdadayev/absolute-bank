@@ -21,9 +21,9 @@ const App = () => {
 
   const { form, onChange: changeForm } = useForm();
 
-  // useEffect(() => {
-  //   console.log(form);
-  // }, [form]);
+  useEffect(() => {
+    console.log(form);
+  }, [form]);
 
   const { dictionaryMap } = useDictionary();
 
